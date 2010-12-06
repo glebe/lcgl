@@ -1,0 +1,69 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--source: http://cssing.org.ua/examples/cssanimation/letters-comp-scaledelayrotate.html-->
+<title>LCGL</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script src='js.js' ></script>
+<style type="text/css" media="screen">
+	/*fonts margins, no magic*/
+	body{
+		padding:30px;
+		font:normal italic 22px/1.3 Georgia,serif;
+		}
+		#limerik{
+			padding:140px 0 0 0;
+			width:300px;
+			margin:0 auto;
+			}
+		/*Magic*/
+		#limerik span{
+			position:relative;
+			-webkit-transition: all 1s ease-out;
+			-o-transition: all 1s ease-out;
+			-moz-transition: all 1s ease-out;
+			display:inline-block;
+			}
+		body:hover #limerik span{
+			left:0 !important;
+			top:0 !important;
+			-webkit-transform: scale(1) rotate(0deg) !important;
+			-moz-transform: scale(1) rotate(0deg) !important;
+			-o-transform: scale(1) rotate(0deg) !important;
+			}
+</style>
+
+</head>
+<body>
+	<!-- BEGIN #limerik -->
+	<div id="limerik">
+		4 декабря. 23.00 <br/> 
+		Большой лепрекон <br/> 
+		не прощелкай <br/> 
+		LCGL. 
+	</div>
+	<!-- END #limerik -->
+	<script type="text/javascript" charset="utf-8">
+		newlime = '';
+		words = document.getElementById('limerik').innerHTML.split(' ');
+		for(i=0;i<words.length;i++){
+			curword = words[i];
+			if(curword[0]!='<'){ // just to make sure it's not <br/> or any other tag
+				for(j=0;j<curword.length;j++){
+					randomX=Math.floor(Math.random()*501) - 250;
+					randomY=Math.floor(Math.random()*301) - 150;
+					randomScale = Math.floor(Math.random()*4) +1;
+					randomDeg = Math.floor(Math.random()*181)-90;
+					randomDelay = Math.floor(Math.random()*5);
+					newlime = newlime +  '<span style="top:-'+randomY+'px;left:'+randomX+'px;-webkit-transform: scale('+randomScale+') rotate('+randomDeg+'deg);-webkit-transition-delay:0.'+randomDelay+'s;-o-transform: scale('+randomScale+') rotate('+randomDeg+'deg);-o-transition-delay:0.'+randomDelay+'s;-moz-transform: scale('+randomScale+') rotate('+randomDeg+'deg);-moz-transition-delay:0.'+randomDelay+'s;">'+curword[j]+'</span>';
+				}
+				newlime = newlime + ' ';
+			}
+			else{newlime = newlime + words[i]}
+		}
+		document.getElementById('limerik').innerHTML = newlime;
+	</script>
+</body>
+</html>

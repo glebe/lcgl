@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<title>LCGL</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<style type="text/css">
+  body{background-color:black;font-family:verdana;}
+  h1#lcgl {font-size:120pt;color:black}
+  div.center{text-align:center;margin-top:20%}
+  div.twitter {position:absolute;right:5px;top:5px;}
+  div#address {margin-top:20px;color:yellow;text-align:right}
+  div#sharetwit, div#shareface {padding:5px}
+</style>
+<script>
+var colors = Array(
+'ffd800',
+'fedb19',
+'fddc25',
+'ffe243',
+'fde24c',
+'fce255',
+'fee55c',
+'fde665',
+'fee86f',
+'feea79',
+'feeb81',
+'fefc7e',
+'fdfc86',
+'fdfc93',
+'fcfb9a',
+'fcfbab',
+'fafbb5',
+'feffc2',
+'fcfdcf',
+'fafadd',
+'fbfbed',
+'ffffe5',
+'fefeed',
+'ffffff'
+);
+function updateColor(elementId){
+  var current_date = new Date();
+  var hour = current_date.getHours();
+  document.getElementById(elementId).style.color = colors[hour];
+}
+</script>
+<script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?10" charset="windows-1251"></script>
+</head>
+
+<body onload="updateColor('lcgl');">
+
+<div class='twitter'>
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: '#LCGL',
+  interval: 6000,
+  title: 'It\'s all about',
+  subject: 'LCGL',
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#333333',
+      color: '#f0f0a6'
+    },
+    tweets: {
+      background: '#333333',
+      color: '#ffffff',
+      links: '#fdffc2'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: true,
+    live: true,
+    hashtags: true,
+    timestamp: true,
+    avatars: true,
+    toptweets: true,
+    behavior: 'default'
+  }
+}).render().start();
+</script>
+
+<table><tr><td>
+<div id="sharetwit">
+<script type="text/javascript"><!--
+document.write(VK.Share.button({url: "http://лкгл.рф"},{type: "round", text: "Рассказать"}));
+--></script>
+</div>
+</td>
+<td>
+<div id="shareface">
+<iframe src="http://www.facebook.com/plugins/like.php?href=%D0%BB%D0%BA%D0%B3%D0%BB.%D1%80%D1%84&amp;layout=button_count&amp;show_faces=false&amp;width=115&amp;action=recommend&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:115px; height:21px;" allowTransparency="true"></iframe>
+</div>
+</td></tr></table>
+
+<div id="address">
+Большой Лепрекон<br/>
+Кремлевская, 11<br/>
+4 декабря, 23.00<br/>
+не пропусти
+</div>
+
+</div>
+
+
+<div class="center">
+<h1 id="lcgl">LCGL</h1>
+</div>
+
+</body>
+</html>
+

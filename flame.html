@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title>flame • tribute to cssing.org.ua from genn.org</title> 
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<style type="text/css" media="screen"> 
+	/*fonts margins, no magic*/
+	body{
+		padding:30px;
+		font-size:11px;
+		line-height: 50%;
+		font-family:"Lucida Console",monospace;
+		background-color: #111;
+		font-weight:bold;
+		}
+		#ascii-demo{
+			padding:140px 0 0 0;
+			width:800px;
+			margin:0 auto;
+			}
+		/*Magic*/
+		#ascii-demo span{
+			position:relative;
+			-webkit-transition: all 1s ease-out;
+			display:inline-block;
+			}
+		body:hover #ascii-demo span{
+			left:0 !important;
+			top:0 !important;
+			-webkit-transform: scale(1) rotate(0deg) !important;
+			}
+		 .rotated{
+				
+				}	
+</style> 
+ 
+</head> 
+<body onclick="this.className='animate'"> 
+	<!-- BEGIN #ascii-demo --> 
+	<div id="ascii-demo"> 
+		**.......****...****.**.... <br/> 
+		**.....*****..*****..**.... <br/> 
+		**.....**.....**.....**.... <br/> 
+		**.....**.....**...*.**..** <br/> 
+		******.*****..**..**.****** <br/> 
+		******...****.******.****** <br/> 
+		........................... <br/> 
+	</div> 
+	<!-- BEGIN #name --> 
+	<!-- END #ascii-demo --> 
+	<script type="text/javascript" charset="utf-8"> 
+		newlime = '';
+		words = document.getElementById('ascii-demo').innerHTML.split(' ');
+		for(i=0;i<words.length;i++){
+			curword = words[i];
+			if(curword[0]!='<'){ // just to make sure it's not <br/> or any other tag
+				for(j=0;j<curword.length;j++){
+					randomX=0;//Math.floor(Math.random()*501) - 250;
+					randomY=Math.floor(Math.random()*200) - 80;
+					charColor=(curword[j]=='.')?(Math.random()*2>1)?'#f8e014':'#a07313':(curword[j ]=='*')?'#ba0c0c':'#eee';
+					randomDeg = Math.floor(Math.random()*360);
+					//alert(curword[0]);
+					newlime = newlime +  '<span class="rotated" style="color:'+charColor+';top:-'+randomY+'px;left:'+randomX+'px;-webkit-transform: rotate('+randomDeg+'deg);"">'+curword[j]+'</span>';
+				}
+				newlime = newlime + ' ';
+			}
+			else{newlime = newlime + words[i]}
+		}
+		document.getElementById('ascii-demo').innerHTML = newlime;
+	</script> 
+</body> 
+</html>
